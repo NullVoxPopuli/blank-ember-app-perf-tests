@@ -7,18 +7,43 @@ module.exports = function (defaults) {
     // Add options here
   });
 
+  if (process.env.LEGACY_BUILD) {
+    return app.toTree();
+  }
+
+  if (process.env.VITE) {
+    return require('@embroider/compat').compatBuild(app, undefined, {
+      skipBabel: [
+        {
+          package: 'qunit',
+        },
+      ],
+      extraPublicTrees: [],
+      staticAddonTrees: true,
+      staticAddonTestSupportTrees: true,
+      staticHelpers: true,
+      staticModifiers: true,
+      staticComponents: true,
+      staticEmberSource: true,
+      amdCompatibility: {
+        es: [],
+      },
+    });
+  }
+
   const { Webpack } = require('@embroider/webpack');
   return require('@embroider/compat').compatBuild(app, Webpack, {
-    staticAddonTestSupportTrees: true,
-    staticAddonTrees: true,
-    staticHelpers: true,
-    staticModifiers: true,
-    staticComponents: true,
-    staticEmberSource: true,
     skipBabel: [
       {
         package: 'qunit',
       },
     ],
+    extraPublicTrees: [],
+    staticAddonTrees: true,
+    staticAddonTestSupportTrees: true,
+    staticHelpers: true,
+    staticModifiers: true,
+    staticComponents: true,
+    staticEmberSource: true,
   });
 };

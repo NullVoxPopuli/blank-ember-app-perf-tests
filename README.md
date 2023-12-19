@@ -1,57 +1,38 @@
 # blank-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
 
-## Prerequisites
+perf notes
 
-You will need the following things properly installed on your computer.
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/)
-* [pnpm](https://pnpm.io/)
-* [Ember CLI](https://cli.emberjs.com/release/)
-* [Google Chrome](https://google.com/chrome/)
 
-## Installation
+Broccoli (legacy)
+```bash
+LEGACY_BUILD=true pnpm start
 
-* `git clone <repository-url>` this repository
-* `cd blank-app`
-* `pnpm install`
+# initial:
+# warm:
+# rebuild:
+```
 
-## Running / Development
+Embroider + Webpack
+```bash
+pnpm start
 
-* `pnpm start`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+# initial:
+# warm:
+# rebuild:
+```
 
-### Code Generators
+Embroider + Vite
+```bash
+VITE=true pnpm start
 
-Make use of the many generators for code, try `ember help generate` for more details
+# initial:
+# warm:
+# rebuild:
+```
 
-### Running Tests
-
-* `pnpm test`
-* `pnpm test:ember --server`
-
-### Linting
-
-* `pnpm lint`
-* `pnpm lint:fix`
-
-### Building
-
-* `pnpm ember build` (development)
-* `pnpm build` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://cli.emberjs.com/release/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+Vite native
+```
+Not yet available
+```
