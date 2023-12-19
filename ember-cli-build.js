@@ -8,10 +8,16 @@ module.exports = function (defaults) {
   });
 
   if (process.env.LEGACY_BUILD) {
+    console.log(`
+      LEGACY_BUILD
+    `);
     return app.toTree();
   }
 
   if (process.env.VITE) {
+    console.log(`
+      VITE
+    `);
     return require('@embroider/compat').compatBuild(app, undefined, {
       skipBabel: [
         {
@@ -32,6 +38,9 @@ module.exports = function (defaults) {
   }
 
   const { Webpack } = require('@embroider/webpack');
+  console.log(`
+      WEBPACK
+    `);
   return require('@embroider/compat').compatBuild(app, Webpack, {
     skipBabel: [
       {

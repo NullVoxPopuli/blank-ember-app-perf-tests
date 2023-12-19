@@ -13,9 +13,6 @@ const root = "node_modules/.embroider/rewritten-app";
 
 export default defineConfig({
   root,
-  // ESBuild does not support non-spec decorators
-  // which schema-decorators uses
-  esbuild: false,
   plugins: [
     hbs(),
     templateTag(),
@@ -49,3 +46,4 @@ export default defineConfig({
     },
   },
 });
+
