@@ -55,7 +55,47 @@ VITE=true pnpm start
 #   warm: same
 #   rebuild:
 # Browser:
+#   initial: 
+#   warm:
+#   rebuild:
+```
+
+</details>
+
+<details><summary>without ember-data</summary>
+
+Broccoli (legacy)
+```bash
+LEGACY_BUILD=true pnpm start
+
+# initial: 3s
+# warm: 1.2s
+# rebuild: 42ms to 83ms
+```
+
+Embroider + Webpack
+```bash
+pnpm start
+
+# initial: 3.8s 
+# warm: 2.5s 
+# rebuild: 47ms to 83ms
+```
+
+Embroider + Vite
+```bash
+VITE=true pnpm start
+
+# COMPAT:
+#   initial: 
+#   warm: 
+#   rebuild: 
+# VITE:
 #   initial:
+#   warm: warm 
+#   rebuild:
+# Browser:
+#   initial: 
 #   warm:
 #   rebuild:
 ```
